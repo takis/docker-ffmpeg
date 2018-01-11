@@ -2,7 +2,7 @@ FROM alpine:latest AS build-env
 MAINTAINER Takis Issaris <takis@issaris.com>
 RUN apk add --no-cache build-base coreutils gcc git make yasm
 WORKDIR /app
-RUN git clone https://github.com/FFmpeg/FFmpeg ffmpeg
+RUN git clone --depth 1 https://github.com/FFmpeg/FFmpeg ffmpeg
 WORKDIR /app/ffmpeg
 RUN ./configure && make && make install
 
